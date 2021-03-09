@@ -1,0 +1,11 @@
+.input {
+  width: 276px;
+  height: 52px;
+  border: 1px  solid black;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.inputContainer {
+  padding: 0 8px;
+}
