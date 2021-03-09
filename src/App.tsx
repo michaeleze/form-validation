@@ -6,7 +6,6 @@ import './App.css';
 
 function App() {
   const [password, setPassword] = useState<string>('');
-  const [showError, setShowError] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<any>();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +28,7 @@ function App() {
         </div>
         <div className="submitContainer">
           <div>
-            {showError && errorMessage?.map((item: { text: string, value: boolean }) => <ErrorComponent item={item} key={item.text}/>)}
+            {errorMessage?.map((item: { text: string, value: boolean }) => <ErrorComponent item={item} key={item.text}/>)}
             <button className="submitButton" onClick={handleSubmit}>Submit</button>
           </div>
         </div>

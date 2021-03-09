@@ -7,7 +7,7 @@ export class CheckPasswordLength implements IRule {
 }
 
 export class CheckLowercase implements IRule{
-  public handleValidate = (password: string): boolean => /[a-z]/.test(password);
+  public handleValidate = (password: string): boolean => !/[a-z]/.test(password);
 }
 
 export class CheckUppercase implements IRule {

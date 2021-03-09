@@ -1,8 +1,9 @@
 import React from "react";
+import './index.css';
 
 const ErrorComponent = ({item }: {item: {text: string, value: boolean}}) => (
   <div>
-    {item?.value ? <span className='checkIcon'>U+2713</span> : <span className='crossIcon'> U+2713</span>} <span>{item.text}</span>
+    {item?.value ? <span className='checkIcon'>&#10003;</span> : <span className='crossIcon'> &#10007; </span>} <span>{item.text}</span>
   </div>
 );
 
