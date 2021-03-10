@@ -21,6 +21,7 @@ class Validator {
 
   public cases = (cases: Array<IRule>) => {
     this.rules = cases;
+    console.log(this)
     return this;
   }
 
