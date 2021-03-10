@@ -1,0 +1,13 @@
+.errorMessageWithButton {
+  display: flex;
+  flex-direction: column;
+}
+
+.submitButton {
+  width: 276px;
+  height: 52px;
+  background: black;
+  color: white;
+  padding: 0 8px;
+  box-sizing: border-box;
+}

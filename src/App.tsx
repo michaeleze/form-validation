@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Input from "./components/Input";
-import ErrorComponent from "./components/ErrorComponent";
+import ErrorMessageWithButton from "./components/ErrorMessageWithButton";
 import { Validate } from "./utils";
 import './App.css';
 
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="root">
       <div id="app" className="app">
-        <div className="container">
+        <div className="inputWrapper">
           <Input name="email" />
           <Input
             name="password"
@@ -33,11 +33,8 @@ function App() {
             required
           />
         </div>
-        <div className="submitContainer">
-          <div>
-            {errorMessage?.map((item: { text: string, value: boolean }) => (<ErrorComponent item={item} key={item.text}/>))}
-            <button className="submitButton" onClick={handleSubmit}>Submit</button>
-          </div>
+        <div className="submitWrapper">
+         <ErrorMessageWithButton errorMessage={errorMessage} handleSubmit={handleSubmit} />
         </div>
       </div>
     </div>
