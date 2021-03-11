@@ -21,7 +21,6 @@ class Validator {
 
   public cases = (cases: Array<IRule>) => {
     this.rules = cases;
-    console.log(this)
     return this;
   }
 
@@ -31,8 +30,6 @@ class Validator {
 
       if (!results) {
         this.errors[index]['value'] = true;
-
-        console.log( this.errors[index], index);
       }
 
       if (!password) {

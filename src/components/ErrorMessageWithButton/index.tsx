@@ -11,7 +11,6 @@ interface IErrorMessageWithButton {
 
 const ErrorMessageWithButton: React.FC<IErrorMessageWithButton> = ({disabled, errorMessage, handleSubmit, text = 'Submit'}) => (
   <div className="errorMessageWithButton">
-
     <div>
       {
         errorMessage?.map((item: { text: string, value: boolean }) => (<ErrorComponent item={item} key={item.text}/>))
