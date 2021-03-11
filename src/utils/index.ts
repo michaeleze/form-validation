@@ -7,7 +7,7 @@ import {
   IRule
 } from "./cases";
 
-const ERRORMESSAGE = [
+export const ERRORMESSAGE = [
   {text: '8+ characters', value: false},
   {text: 'lowercase letter', value: false},
   {text: 'uppercase letter', value: false},
@@ -33,6 +33,10 @@ class Validator {
         this.errors[index]['value'] = true;
 
         console.log( this.errors[index], index);
+      }
+
+      if (!password) {
+        this.errors[index]['value'] = false;
       }
     });
 

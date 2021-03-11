@@ -1,40 +1,44 @@
 import React, {useState} from 'react';
 import Input from "./components/Input";
 import ErrorMessageWithButton from "./components/ErrorMessageWithButton";
-import { Validate } from "./utils";
+import {Validate, ERRORMESSAGE} from "./utils";
 import './App.css';
 
 function App() {
-  const [password, setPassword] = useState<string>('');
-  const [errorMessage, setErrorMessage] = useState<any>([]);
+  const [state, setState] = useState<any>([]);
+  const [disabled,setDisabled] =  useState<boolean>(true);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(event.target.value);
-  };
+  const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const message = Validate.check(event.target.value);
+    setState(message);
+  }, []);
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    const message = Validate.check(password);
+  const handleSubmit = () => {
+    const findInvalid = state.find((message: {text: string, value: boolean }) => message.value === false);
 
-    setErrorMessage(message);
+    if(findInvalid) {
+      return;
+    }
+    else {
+      setDisabled(false)
+    }
   };
 
   return (
     <div className="root">
       <div id="app" className="app">
         <div className="inputWrapper">
-          <Input name="email" />
+          <Input name="email"/>
           <Input
             name="password"
             handleChange={handleChange}
-            value={password}
             minlength={8}
             type='password'
             required
           />
         </div>
         <div className="submitWrapper">
-         <ErrorMessageWithButton errorMessage={errorMessage} handleSubmit={handleSubmit} />
+          <ErrorMessageWithButton disabled={disabled} errorMessage={state} handleSubmit={handleSubmit}/>
         </div>
       </div>
     </div>

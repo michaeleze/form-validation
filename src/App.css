@@ -34,3 +34,19 @@
   justify-content: center;
   height: 100%;
 }
+
+@media screen and (max-width: 578px) {
+  .app {
+    height: initial;
+  }
+
+  .inputWrapper {
+    flex-direction: column;
+    width: initial;
+  }
+
+  .submitWrapper {
+    justify-content: flex-start;
+    width: initial;
+  }
+}
