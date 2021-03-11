@@ -16,7 +16,7 @@ export const ERRORMESSAGE = [
 ]
 
 class Validator {
-  private errors: Array<{ text: string, value: boolean }> = ERRORMESSAGE;
+  private errorMessage: Array<{ text: string, value: boolean }> = ERRORMESSAGE;
   private rules: Array<IRule> = [];
 
   public cases = (cases: Array<IRule>) => {
@@ -29,15 +29,15 @@ class Validator {
       const results = rule.handleValidate(password);
 
       if (!results) {
-        this.errors[index]['value'] = true;
+        this.errorMessage[index]['value'] = true;
       }
 
       if (!password) {
-        this.errors[index]['value'] = false;
+        this.errorMessage[index]['value'] = false;
       }
     });
 
-    return this.errors;
+    return this.errorMessage;
   }
 }
 
