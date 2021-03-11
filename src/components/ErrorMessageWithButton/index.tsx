@@ -11,12 +11,14 @@ interface IErrorMessageWithButton {
 
 const ErrorMessageWithButton: React.FC<IErrorMessageWithButton> = ({disabled, errorMessage, handleSubmit, text = 'Submit'}) => (
   <div className="errorMessageWithButton">
-    <div>
+    <div className='errorMessage'>
       {
         errorMessage?.map((item: { text: string, value: boolean }) => (<ErrorComponent item={item} key={item.text}/>))
       }
     </div>
-    <button className="submitButton" onClick={handleSubmit} disabled={disabled}>{text}</button>
+    <div className='submitButtonWrapper'>
+      <button className="submitButton" onClick={handleSubmit} disabled={disabled}>{text}</button>
+    </div>
   </div>
 );
 

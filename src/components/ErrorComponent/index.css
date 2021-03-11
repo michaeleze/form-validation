@@ -5,3 +5,13 @@
 .crossIcon {
   color: red;
 }
+
+.errorText {
+  margin: 10px  0;
+}
+
+@media screen and (max-width: 578px) {
+  .errorText {
+    margin: 10px  20px;
+  }
+}
