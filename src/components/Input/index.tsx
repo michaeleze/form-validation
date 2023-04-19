@@ -7,7 +7,8 @@ interface IInput {
   value?: string;
   minlength?: number | undefined;
   type?: string;
-  required?: boolean
+  required?: boolean;
+  testId?: string;
 }
 
 const Input: React.FC<IInput> = (props) => {
@@ -18,6 +19,7 @@ const Input: React.FC<IInput> = (props) => {
     minlength,
     type,
     required,
+    testId
   } = props;
 
   return (
@@ -31,6 +33,7 @@ const Input: React.FC<IInput> = (props) => {
         minLength={minlength}
         type={type}
         required={required}
+        data-testid={testId}
       />
     </div>
   )

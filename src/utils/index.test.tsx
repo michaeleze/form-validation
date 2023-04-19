@@ -1,4 +1,4 @@
-import { validate } from '.';
+import { validate } from './index';
 import { ERRORMESSAGE } from '../constant';
 
 describe('Validation Function', () => {
@@ -13,8 +13,6 @@ describe('Validation Function', () => {
 
     const charlength = test?.find((item: {value: boolean, text: string}) => item.text === '8+ characters');
 
-    console.log(charlength);
-
     expect(charlength?.value).toEqual(true);
   });
 
@@ -23,8 +21,6 @@ describe('Validation Function', () => {
 
     const charlength = test?.find((item: {value: boolean, text: string}) => item.text === 'lowercase letter');
 
-    console.log(charlength);
-
     expect(charlength?.value).toEqual(true);
   });
 
@@ -32,8 +28,6 @@ describe('Validation Function', () => {
     const test = validate('awwrrGdind');
 
     const charlength = test?.find((item: {value: boolean, text: string}) => item.text === 'uppercase letter');
-
-    console.log(charlength);
 
     expect(charlength?.value).toEqual(true);
   });
@@ -44,8 +38,6 @@ describe('Validation Function', () => {
 
     const charlength = test?.find((item: {value: boolean, text: string}) => item.text === 'number');
 
-    console.log(charlength);
-
     expect(charlength?.value).toEqual(true);
   });
 
@@ -53,8 +45,6 @@ describe('Validation Function', () => {
     const test = validate('aww23G?<dind');
 
     const charlength = test?.find((item: {value: boolean, text: string}) => item.text === 'special character');
-
-    console.log(charlength);
 
     expect(charlength?.value).toEqual(true);
   });

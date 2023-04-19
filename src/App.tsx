@@ -34,8 +34,9 @@ function App() {
             name="password"
             handleChange={handleChange}
             minlength={8}
-            type='password'
+            type="password"
             required
+            testId="input-password"
           />
         </div>
         <div className="submitWrapper">
