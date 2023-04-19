@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
-import Input from "./components/Input";
-import ErrorMessageWithButton from "./components/ErrorMessageWithButton";
-import {Validate} from "./__helper";
+import React, { useState, memo } from 'react';
+import Input from './components/Input';
+import ErrorMessageWithButton from './components/ErrorMessageWithButton';
+import { validate } from './utils';
 import './App.css';
 
 function App() {
@@ -9,11 +9,13 @@ function App() {
   const [disabled,setDisabled] =  useState<boolean>(true);
 
   const handleChange = React.useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    const errorMessage = Validate.check(event.target.value);
+    const errorMessage = validate(event.target.value);
+
     setState([...state, ...errorMessage]);
 
-    const findInvalid = errorMessage.find((item) => item.value === false );
-    if(!findInvalid) {
+    const findInvalidMessage = errorMessage.find((item) => item.value === false );
+
+    if(!findInvalidMessage) {
       setDisabled(false)
     }
     else {
@@ -44,4 +46,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);
