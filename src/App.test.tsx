@@ -3,7 +3,6 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import { act } from "react-dom/test-utils";
 import App from './App';
 import ErrorComponent from './components/ErrorComponent';
-import { text } from 'stream/consumers';
 
 describe('Form page', () => {
 
